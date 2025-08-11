@@ -17,7 +17,7 @@ with st.sidebar:
     add_selectmenu = st.sidebar.selectbox(
         "Choose your dashboard MENU",
         ("USER", "DATA", "GPUaaS"),
-        index=2 
+        index=0 
     )  
 
     # Select Date
