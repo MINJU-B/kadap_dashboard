@@ -50,21 +50,21 @@ class DashboardGPU():
             working = 5-(waiting + error)
             
         with col_1:
-            st.image('./image/all_5110777.png', width=50)
+            st.image('all_5110777.png', width=50)
             st.subheader('전체')
             st.subheader(working+waiting+error)
         with col_2:
-            st.image('./image/refresh_16876526.png', width=50)
+            st.image('refresh_16876526.png', width=50)
             st.subheader('실행중')
             st.subheader(working)
         
         col_3, col_4 = st.columns([1,1])
         with col_3:
-            st.image('./image/stop_142458.png', width=50)
+            st.image('stop_142458.png', width=50)
             st.subheader('대기중')
             st.subheader(waiting)
         with col_4:
-            st.image('./image/error_1008930.png', width=50)
+            st.image('error_1008930.png', width=50)
             st.subheader('에러')
             st.subheader(error)
 
