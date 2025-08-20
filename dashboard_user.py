@@ -3,7 +3,8 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
-from matplotlib import rc
+from matplotlib import font_manager, rcParams
+from pathlib import Path
 
 @st.cache_resource
 def setup_korean_font():
