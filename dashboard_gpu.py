@@ -11,6 +11,7 @@ def setup_korean_font():
     font_dir = Path(__file__).parent
     # 원하는 폰트 파일명으로 교체 가능
     font_paths = [font_dir / "Pretendard.ttf"]
+    print(font_paths)    
     for p in font_paths:
         if p.exists():
             font_manager.fontManager.addfont(str(p))
