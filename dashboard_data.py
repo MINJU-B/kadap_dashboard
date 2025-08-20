@@ -128,7 +128,7 @@ class DashboardData:
                           index=pd.date_range(start=start_day, periods=7, freq='D'),
                           columns=['공유', '조회','다운로드'])
         
-        st.line_chart(df, use_container_width=True, x_label='닐찌', y_label='활용 수')
+        st.line_chart(df, use_container_width=True, x_label='날짜', y_label='활용 수')
 
     
     def top10_Data_Views():
