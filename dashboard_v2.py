@@ -7,8 +7,6 @@ from dashboard_user import DashboardUser
 from dashboard_data import DashboardData
 from dashboard_gpu  import DashboardGPU
 
-for i in matplotlib.font_manager.fontManager.ttflist:
-    print(i)
 
 st.set_page_config(
     page_title = "자동차데이터플랫폼 Dashboard",
