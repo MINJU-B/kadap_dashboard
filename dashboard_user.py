@@ -5,9 +5,9 @@ import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
 from matplotlib import rc
 
-rc('font', family='Malgum Gothic')
+plt.rc('font', family='Malgun Gothic')
 # plt.rcParams['font.family'] = 'NanumGothic'  # 한글 폰트 설정
-plt.rcParams['axes.unicode_minus'] = False   # 마이너스 기호 표시 설정
+plt.rcParams['axes.unicode_minus'] = False     # 마이너스 기호 표시 설정
 
 def create_visitor_chart():
     # 임의의 방문자 수 데이터 생성 (7일치)
