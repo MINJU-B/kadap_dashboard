@@ -15,7 +15,7 @@ def setup_korean_font():
     # 등록한 폰트 패밀리명(내장 이름) 지정
     rcParams["font.family"] = "Pretendard"  # NotoSansKR의 일반적인 family name
     rcParams["axes.unicode_minus"] = False        # 마이너스 기호 깨짐 방지
-    rcParams["font.size"] = 10
+    rcParams['font.size'] = 10
     
 setup_korean_font()
 
