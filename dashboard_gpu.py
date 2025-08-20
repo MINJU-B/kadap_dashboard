@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 
 @st.cache_resource
 def setup_korean_font():
-    font_dir = Path(__file__).parent
+    font_dir = Path(__file__).parent/"asset"/"fonts"
     # 원하는 폰트 파일명으로 교체 가능
     font_paths = [font_dir / "Pretendard.ttf"]
     print(font_paths)    
@@ -64,21 +64,21 @@ class DashboardGPU():
             working = 5-(waiting + error)
             
         with col_1:
-            st.image('all_5110777.png', width=50)
+            st.image('./asset/images/all_5110777.png', width=50)
             st.subheader('전체')
             st.subheader(working+waiting+error)
         with col_2:
-            st.image('refresh_16876526.png', width=50)
+            st.image('./asset/images/refresh_16876526.png', width=50)
             st.subheader('실행중')
             st.subheader(working)
         
         col_3, col_4 = st.columns([1,1])
         with col_3:
-            st.image('stop_142458.png', width=50)
+            st.image('./asset/images/stop_142458.png', width=50)
             st.subheader('대기중')
             st.subheader(waiting)
         with col_4:
-            st.image('error_1008930.png', width=50)
+            st.image('./asset/images/error_1008930.png', width=50)
             st.subheader('에러')
             st.subheader(error)
 
