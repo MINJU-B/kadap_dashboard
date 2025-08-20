@@ -2,7 +2,9 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from pathlib import Path
 from datetime import datetime, timedelta
+from matplotlib import font_manager, rcParams
 
 @st.cache_resource
 def setup_korean_font():
