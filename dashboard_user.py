@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
 from matplotlib import rc
 
-rc('font', family='MalgumGothic')
+rc('font', family='Malgum Gothic')
 # plt.rcParams['font.family'] = 'NanumGothic'  # 한글 폰트 설정
 plt.rcParams['axes.unicode_minus'] = False   # 마이너스 기호 표시 설정
 
