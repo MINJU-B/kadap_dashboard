@@ -4,9 +4,20 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
 
-plt.rcParams['font.family'] = 'Malgun Gothic'  # 한글 폰트 설정
-plt.rcParams['axes.unicode_minus'] = False     # 마이너스 기호 표시 설정
-plt.rcParams['font.size'] = 10
+@st.cache_resource
+def setup_korean_font():
+    font_dir = Path(__file__).parent / "assets" / "fonts"
+    # 원하는 폰트 파일명으로 교체 가능
+    font_paths = [font_dir / "Pretendard.ttf"]
+    for p in font_paths:
+        if p.exists():
+            font_manager.fontManager.addfont(str(p))
+    # 등록한 폰트 패밀리명(내장 이름) 지정
+    rcParams["font.family"] = "Pretendard"  # NotoSansKR의 일반적인 family name
+    rcParams["axes.unicode_minus"] = False        # 마이너스 기호 깨짐 방지
+    rcParams["font.size"] = 10
+    
+setup_korean_font()
 
 # @staticmethod
 def create_data(today, part):
