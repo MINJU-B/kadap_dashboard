@@ -8,7 +8,7 @@ from matplotlib import font_manager, rcParams
 
 @st.cache_resource
 def setup_korean_font():
-    font_dir = Path(__file__).parent / "assets" / "fonts"
+    font_dir = Path(__file__).parent
     # 원하는 폰트 파일명으로 교체 가능
     font_paths = [font_dir / "Pretendard.ttf"]
     for p in font_paths:
