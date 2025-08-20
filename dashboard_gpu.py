@@ -18,6 +18,8 @@ def setup_korean_font():
     plt.rcParams['axes.unicode_minus'] = False   # 마이너스 기호 표시 설정
     plt.rcParams['font.size'] = 10
 
+setup_korean_font()
+
 class DashboardGPU():
     @staticmethod
     def usage_A40(today):
