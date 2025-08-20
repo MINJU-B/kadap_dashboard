@@ -5,8 +5,23 @@ import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
 from matplotlib import rc
 
-plt.rc('font', family='NanumGothic')
-plt.rcParams['axes.unicode_minus'] = False     # 마이너스 기호 표시 설정
+# plt.rc('font', family='NanumGothic')
+# plt.rcParams['axes.unicode_minus'] = False     # 마이너스 기호 표시 설정
+
+@st.cache_resource
+def setup_korean_font():
+    font_dir = Path(__file__).parent / "assets" / "fonts"
+    print(font_dir)
+    # 원하는 폰트 파일명으로 교체 가능
+    font_paths = [font_dir / "Pretendard.ttf"]
+    for p in font_paths:
+        if p.exists():
+            font_manager.fontManager.addfont(str(p))
+    # 등록한 폰트 패밀리명(내장 이름) 지정
+    rcParams["font.family"] = "Noto Sans CJK KR"  # NotoSansKR의 일반적인 family name
+    rcParams["axes.unicode_minus"] = False        # 마이너스 기호 깨짐 방지
+
+setup_korean_font()
 
 def create_visitor_chart():
     # 임의의 방문자 수 데이터 생성 (7일치)
