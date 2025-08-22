@@ -1,6 +1,4 @@
 import streamlit as st
-import matplotlib
-import matplotlib.font_manager
 #import altair as alt
 from datetime import datetime
 from dashboard_user import DashboardUser
