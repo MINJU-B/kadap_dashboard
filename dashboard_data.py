@@ -74,13 +74,15 @@ class DashboardData:
                            default="국내",
                            label_visibility="collapsed")
         
-        fig, ax = plt.subplots(figsize=(10, 3.5))   # figsize = (x축, y축)
+        fig, ax = plt.subplots(figsize=(10, 3.2))   # figsize = (x축, y축)
         if tag == "국내":
             months, totals, datas = create_data(today, tag)
+            # totals = [28645, 61628, 66780, 56278, 88421, 88958]
         else:
             months, totals, datas = create_data(today, tag)
 
         counts = {
+        #    "데이터 수집량": np.array(totals),
             "total": np.array(totals),
             "data" : np.array(datas),
         }
@@ -108,18 +110,18 @@ class DashboardData:
             categories = ["부품제조", "자동차제조", "판매/정비", "이용", "관제", "미래차", "기타"]
             counts = [5104, 416, 2648, 11, 2344, 258, 1332]
             ax.set_position([0, 0, 1, 1])  # 축을 전체 영역으로 확장
-            ax.pie(counts, labels=categories, startangle=140, frame=False, radius=1.0, center=(0,1))
+            ax.pie(counts, labels=categories, autopct='%1.1f%%', startangle=150, frame=False, radius=0.9, center=(0,1))
             ax.legend(loc="best", bbox_to_anchor=(1, 1.0), fontsize=8)
         else:
             fig, ax = plt.subplots(figsize=(8, 5))
             categories = ["부품제조", "자동차제조", "판매/정비", "이용", "관제", "미래차", "기타"]
             counts = [2635, 13, 13182, 80, 3667, 3370, 1230]    
             ax.set_position([0, 0, 1, 1])  # 축을 전체 영역으로 확장
-            ax.pie(counts, labels=categories, startangle=110, frame=False, radius=1.0, center=(0,1))
+            ax.pie(counts, labels=categories, autopct='%1.1f%%', startangle=110, frame=False, radius=1.0, center=(0,1))
             ax.legend(loc="best", bbox_to_anchor=(1, 1.0), fontsize=8)
 
         plt.tight_layout()
-        st.pyplot(fig, clear_figure=True, use_container_width=True)
+        st.pyplot(fig, clear_figure=True, use_container_width=False)
         
     def data_Utilization_Status(today):
         np.random.seed(today.day)  # 랜덤 시드 설정
@@ -133,3 +135,7 @@ class DashboardData:
     
     def top10_Data_Views():
         st.write("조회수 Top10 데이터")
+        data = {
+            '데이터명': [f"data_{i}" for i in range(1, 11)],
+            '조회수': np.random.randint(100, 1000, size=10)
+        }

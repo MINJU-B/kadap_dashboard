@@ -66,13 +66,13 @@ class DashboardUser:
         sizes  = [362, 289]
         fig, ax = plt.subplots(figsize=(4, 3))
         ax.pie(sizes, labels=labels, autopct='%1.1f%%', 
-                radius=1.0, startangle=90)
+                radius=1.0, startangle=90, )
         ax.margins(x=0, y=0)    # 여백지우기
         st.pyplot(fig)
 
     def institution_user():
         st.write("기관별 가입자 수")
-        fig, ax = plt.subplots(figsize=(5, 4.5))
+        fig, ax = plt.subplots(figsize=(5.0, 3.5))
         institutions = ['Koroad', 'KATECH','DIP','Mobigen', 'Datacook']
         counts = [177, 29, 22, 16, 4]
         bar_labels = ['Koroad', 'KATECH','DIP','Mobigen', 'Datacook']
@@ -84,7 +84,7 @@ class DashboardUser:
     def usage_mydisk(today):
         np.random.seed(today.day)
         st.write("MyDisk 사용 현황")
-        fig, ax = plt.subplots(figsize=(5, 4.5))
+        fig, ax = plt.subplots(figsize=(5, 3.5))
         people = []
         usage  = []
         for i in range(5):
@@ -117,21 +117,21 @@ class DashboardUser:
             dates = [select_day - timedelta(days=i) for i in range(6, -1, -1)]
             date_labels = [d.strftime('%m/%d') for d in dates]
             np.random.seed(select_day.day)                   
-            page_views = np.random.randint(100, 500, size=7)    # 전체 방문자 수
+            page_views = np.random.randint(100, 400, size=7)    # 전체 방문자 수
             
             df = pd.DataFrame({
                 'date': date_labels,
                 'page_views': page_views
             })
-            st.line_chart(df, y='page_views')
+            st.line_chart(df, y='page_views', width=0, height=280)
         elif evnet == "click":
             dates = [datetime.today() - timedelta(days=i) for i in range(6, -1, -1)]
             date_labels = [d.strftime('%m/%d') for d in dates]
             np.random.seed(select_day.day-1)                   
-            clicks = np.random.randint(100, 500, size=7)        # 전체 방문자 수
+            clicks = np.random.randint(200, 400, size=7)        # 전체 방문자 수
             
             df = pd.DataFrame({
                 'date': date_labels,
                 'clicks': clicks
             })
-            st.line_chart(df, y='clicks')
+            st.line_chart(df, y='clicks', width=0, height=280)

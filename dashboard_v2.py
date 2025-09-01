@@ -1,16 +1,23 @@
 import streamlit as st
 #import altair as alt
-from datetime import datetime
-from dashboard_user import DashboardUser
-from dashboard_data import DashboardData
-from dashboard_gpu  import DashboardGPU
-
 
 st.set_page_config(
     page_title = "자동차데이터플랫폼 Dashboard",
     layout     = "wide",
     initial_sidebar_state = "expanded"
 )
+
+from datetime import datetime
+from dashboard_user import DashboardUser
+from dashboard_data import DashboardData
+from dashboard_gpu  import DashboardGPU
+
+
+# st.set_page_config(
+#     page_title = "자동차데이터플랫폼 Dashboard",
+#     layout     = "wide",
+#     initial_sidebar_state = "expanded"
+# )
 #alt.themes.enable("dark")
 
 with st.sidebar:
@@ -43,19 +50,20 @@ if add_selectmenu == "USER":
             DashboardUser.show_user()
 
     with col_4:
-        with st.container(border=True, height=400):
+        with st.container(border=True, height=350):
             DashboardUser.institution_user()
 
     with col_5:
-        with st.container(border=True, height=400):
+        with st.container(border=True, height=350):
             DashboardUser.usage_mydisk(select_day)
 
     with col_6:
-        with st.container(border=True, height=400):
+        with st.container(border=True, height=350):
             DashboardUser.occurrence_event(select_day)
 
 elif add_selectmenu == "DATA":
     # call dashboard_data.py           
+    st.title("자동차데이터플랫폼 DATA Dashboard")
     col_1, col_2 = st.columns([1,2])
     
     with col_1:
